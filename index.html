@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo Tournament</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎲 Ludo Tournament 🎲</h1>
+            <div class="score-display">
+                <div class="player-score" id="score-red">
+                    <span class="player-name">Red: </span>
+                    <span class="score">0</span>
+                </div>
+                <div class="player-score" id="score-blue">
+                    <span class="player-name">Blue: </span>
+                    <span class="score">0</span>
+                </div>
+                <div class="player-score" id="score-green">
+                    <span class="player-name">Green: </span>
+                    <span class="score">0</span>
+                </div>
+                <div class="player-score" id="score-yellow">
+                    <span class="player-name">Yellow: </span>
+                    <span class="score">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="game-info">
+                <div class="current-player">
+                    Current Player: <span id="current-player-display">Red</span>
+                </div>
+                <div class="dice-section">
+                    <div class="dice" id="dice">
+                        <div class="dice-face">?</div>
+                    </div>
+                    <button id="roll-btn" class="roll-button">Roll Dice</button>
+                </div>
+                <div class="game-message" id="game-message">Roll the dice to start!</div>
+            </div>
+
+            <div class="board-container">
+                <svg id="ludo-board" viewBox="0 0 600 600">
+                    <!-- Red Home Area -->
+                    <rect x="0" y="0" width="240" height="240" fill="#ff6b6b" stroke="#000" stroke-width="2"/>
+                    
+                    <!-- Blue Home Area -->
+                    <rect x="360" y="0" width="240" height="240" fill="#4ecdc4" stroke="#000" stroke-width="2"/>
+                    
+                    <!-- Green Home Area -->
+                    <rect x="0" y="360" width="240" height="240" fill="#95e1d3" stroke="#000" stroke-width="2"/>
+                    
+                    <!-- Yellow Home Area -->
+                    <rect x="360" y="360" width="240" height="240" fill="#f7dc6f" stroke="#000" stroke-width="2"/>
+                    
+                    <!-- Center safe area -->
+                    <rect x="240" y="240" width="120" height="120" fill="#fff" stroke="#000" stroke-width="3"/>
+                    <polygon points="300,240 360,300 300,360 240,300" fill="#ffd700" stroke="#000" stroke-width="2"/>
+                    
+                    <!-- Track paths will be drawn by JS -->
+                </svg>
+                
+                <!-- Tokens will be added dynamically -->
+                <div id="tokens-container"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="new-game-btn" class="control-btn">New Game</button>
+            <button id="reset-tournament-btn" class="control-btn">Reset Tournament</button>
+        </div>
+
+        <div class="leaderboard">
+            <h2>Tournament Leaderboard</h2>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Wins</th>
+                        <th>Games</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
